@@ -19,6 +19,6 @@ class Alternative f where
 
 infixl 3 <|>
 
-class (IsoFunctor d, ProductFunctor d, Alternative d) => Syntax d where
-  pure :: Eq a => a -> d a
-  token :: d Char
+class (IsoFunctor (p t), ProductFunctor (p t), Alternative (p t)) => Syntax p t where
+  pure :: Eq a => a -> p t a
+  token :: p t t

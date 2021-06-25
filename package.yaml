@@ -8,7 +8,6 @@ copyright: "2021 Caden Haustein"
 
 extra-source-files:
   - README.md
-  - ChangeLog.md
 
 default-extensions:
   # - GHC2021

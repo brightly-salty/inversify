@@ -5,20 +5,20 @@ import Inversify.Classes
 import Inversify.Iso
 import Prelude hiding (print)
 
-newtype Printer a = Printer {print :: a -> Maybe String}
+newtype Printer tok a = Printer {print :: a -> Maybe [tok]}
 
-instance IsoFunctor Printer where
+instance IsoFunctor (Printer tok) where
   iso <$> Printer p = Printer (unapply iso >=> p)
 
-instance ProductFunctor Printer where
+instance ProductFunctor (Printer tok) where
   Printer p <*> Printer q =
     Printer (\(x, y) -> liftM2 (<>) (p x) (q y))
 
-instance Alternative Printer where
+instance Alternative (Printer tok) where
   Printer p <|> Printer q =
     Printer (\s -> mplus (p s) (q s))
   empty = Printer (const Nothing)
 
-instance Syntax Printer where
-  pure x = Printer (\y -> if x == y then Just "" else Nothing)
+instance Syntax Printer tok where
+  pure x = Printer (\y -> if x == y then Just [] else Nothing)
   token = Printer (\t -> Just [t])

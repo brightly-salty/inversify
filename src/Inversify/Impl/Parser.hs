@@ -3,9 +3,9 @@ module Inversify.Impl.Parser (Parser (..), parse) where
 import Inversify.Classes
 import Inversify.Iso
 
-newtype Parser a = Parser ([Char] -> [(a, [Char])])
+newtype Parser tok a = Parser ([tok] -> [(a, [tok])])
 
-instance IsoFunctor Parser where
+instance IsoFunctor (Parser tok) where
   iso <$> Parser p =
     Parser $
       concatMap
@@ -17,23 +17,23 @@ instance IsoFunctor Parser where
         )
         . p
 
-instance ProductFunctor Parser where
+instance ProductFunctor (Parser tok) where
   Parser p <*> Parser q =
     Parser $
       concatMap (\(x, s') -> concatMap (\(y, s'') -> [((x, y), s'')]) (q s')) . p
 
-instance Alternative Parser where
+instance Alternative (Parser tok) where
   Parser p <|> Parser q = Parser (\s -> p s <> q s)
   empty = Parser (const [])
 
-instance Syntax Parser where
+instance Syntax Parser tok where
   pure x = Parser (\s -> [(x, s)])
   token = Parser f
     where
       f [] = []
       f (t : ts) = [(t, ts)]
 
-parse :: Parser a -> String -> [a]
+parse :: Parser tok a -> [tok] -> [a]
 parse (Parser p) s =
   concatMap
     ( \(x, xs) -> case xs of
