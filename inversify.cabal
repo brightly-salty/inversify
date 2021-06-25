@@ -1,0 +1,78 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           inversify
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/brightly-salty/inversify#readme>
+homepage:       https://github.com/brightly-salty/inversify#readme
+bug-reports:    https://github.com/brightly-salty/inversify/issues
+author:         Caden Haustein
+maintainer:     code@brightlysalty.33mail.com
+copyright:      2021 Caden Haustein
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/brightly-salty/inversify
+
+library
+  exposed-modules:
+      Inversify.Classes
+      Inversify.Combinators
+      Inversify.Impl.Parser
+      Inversify.Impl.Printer
+      Inversify.Iso
+      Inversify.TH
+  other-modules:
+      Paths_inversify
+  hs-source-dirs:
+      src
+  default-extensions:
+      EmptyCase
+      PostfixOperators
+      TupleSections
+      ImportQualifiedPost
+      NamedFieldPuns
+      BangPatterns
+      BinaryLiterals
+      HexFloatLiterals
+      NumericUnderscores
+      GADTSyntax
+      RankNTypes
+      TypeApplications
+      PolyKinds
+      StandaloneKindSignatures
+      ExistentialQuantification
+      TypeOperators
+      ConstraintKinds
+      ExplicitForAll
+      KindSignatures
+      NamedWildCards
+      ScopedTypeVariables
+      FlexibleContexts
+      FlexibleInstances
+      MultiParamTypeClasses
+      ConstrainedClassMethods
+      InstanceSigs
+      TypeSynonymInstances
+      DeriveDataTypeable
+      DeriveFoldable
+      DeriveFunctor
+      DeriveTraversable
+      StandaloneDeriving
+      EmptyDataDeriving
+      DeriveLift
+      GeneralizedNewtypeDeriving
+      DeriveGeneric
+  build-depends:
+      base >=4.7 && <5
+    , template-haskell
+  default-language: Haskell2010

@@ -1,0 +1,66 @@
+name: inversify
+version: 0.1.0.0
+github: "brightly-salty/inversify"
+license: BSD3
+author: "Caden Haustein"
+maintainer: "code@brightlysalty.33mail.com"
+copyright: "2021 Caden Haustein"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+default-extensions:
+  # - GHC2021
+  - EmptyCase
+  - PostfixOperators
+  - TupleSections
+  - ImportQualifiedPost
+  - NamedFieldPuns
+  - BangPatterns
+  - BinaryLiterals
+  - HexFloatLiterals
+  - NumericUnderscores
+  - GADTSyntax
+  - RankNTypes
+  - TypeApplications
+  - PolyKinds
+  - StandaloneKindSignatures
+  - ExistentialQuantification
+  - TypeOperators
+  - ConstraintKinds
+  - ExplicitForAll
+  - KindSignatures
+  - NamedWildCards
+  - ScopedTypeVariables
+  - FlexibleContexts
+  - FlexibleInstances
+  - MultiParamTypeClasses
+  - ConstrainedClassMethods
+  - InstanceSigs
+  - TypeSynonymInstances
+  - DeriveDataTypeable
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveTraversable
+  - StandaloneDeriving
+  - EmptyDataDeriving
+  - DeriveLift
+  - GeneralizedNewtypeDeriving
+  - DeriveGeneric
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/brightly-salty/inversify#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+  - template-haskell
+
+library:
+  source-dirs: src
